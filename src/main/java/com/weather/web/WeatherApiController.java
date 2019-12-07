@@ -50,7 +50,7 @@ public class WeatherApiController {
 	@PostMapping("/{country}/{city}")
 	public ResponseEntity<Object> getWeather(@PathVariable String country,
 			@PathVariable String city) {
-		System.out.println("asdsdfsfsdfsdf");
+		logger.debug("inside the getWeather");
 		
 		String key=configuration.getKey();
 		String lattitude="";
@@ -132,9 +132,7 @@ public class WeatherApiController {
 
         return "index";
     }*/
-
 	
-	//@Scheduled(initialDelay = 1000, fixedRate = 10000)
 	@Scheduled(cron="0 1 1 * * ?")
 	public void run() {
 	    System.out.println("Current time is :: " + Calendar.getInstance().getTime());
